@@ -1,0 +1,71 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{preamble}
+
+% Make sure that UTF-8 is used
+\usepackage[utf8]{inputenc}
+
+% Nicer conditionals
+\usepackage{etoolbox}
+
+% Package for inserting images
+\usepackage{graphicx}
+
+% Packages for setting up header and footer
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[hidelinks]{hyperref}
+
+% A bunch of math packages
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+% Subfiles
+\usepackage{subfiles}
+
+% Bold in math mode
+\usepackage{bm}
+
+% Don't indent paragraphs
+\usepackage{parskip}
+
+% The word in the footer between page numbers
+\newcommand{\@defaultpagedelim}{of}
+
+% Use biber
+\newcommand{\usebib}{\usepackage[style=authoryear,backend=biber]{biblatex}}
+
+% Number sets
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+
+% Partial differentiation fraction
+\newcommand{\pfrac}[2]{\frac{\partial #1}{\partial #2}}
+% Set the document language
+\newcommand{\setlang}[1]{
+  \usepackage[#1]{babel}
+
+  % Change the default word in the footer between page numbers (x of y) vs (x af y)
+  \ifstrequal{#1}{danish}{
+    \renewcommand{\@defaultpagedelim}{af}
+  }{
+    \ifstrequal{#1}{english}{
+      \renewcommand{\@defaultpagedelim}{of}
+    }
+  }
+}
+
+% Centers some text and puts two lines under it
+\newcommand{\facit}[1]{\begin{center}\underline{\underline{#1}}\end{center}}
+
+\newcommand{\nohf}{
+	\thispagestyle{plain}
+	\pagenumbering{gobble}
+}
+
+\newcommand{\pagenumberinfooter}[1][\@defaultpagedelim]{
+  \pagenumbering{arabic}
+  \cfoot{\thepage\space #1 \pageref{LastPage}}
+}
