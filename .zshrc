@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -8,7 +15,7 @@ export ZSH="/home/markus/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -104,37 +111,46 @@ fi
 if [ -f ~/.bash_path ]; then
   . ~/.bash_path
 fi
-GOPATH=$HOME/go
-function powerline_precmd() {
-  PS1="$($GOPATH/bin/powerline-go -error $? -shell zsh)"
-}
-
-function install_powerline_precmd() {
-  for s in "${precmd_functions[@]}"; do
-    if [ "$s" = "powerline_precmd" ]; then
-      return
-    fi
-  done
-  precmd_functions+=(powerline_precmd)
-}
-
-if [ "$TERM" != "linux" ]; then
-  install_powerline_precmd
-fi
+#GOPATH=$HOME/go
+#function powerline_precmd() {
+#  PS1="$($GOPATH/bin/powerline-go -error $? -shell zsh)"
+#}
+#
+#function install_powerline_precmd() {
+#  for s in "${precmd_functions[@]}"; do
+#    if [ "$s" = "powerline_precmd" ]; then
+#      return
+#    fi
+#  done
+#  precmd_functions+=(powerline_precmd)
+#}
+#
+#if [ "$TERM" != "linux" ]; then
+#  install_powerline_precmd
+#fi
 
 # Suggest potentential packages if command was not found
-source /etc/zsh_command_not_found
+#source /etc/zsh_command_not_found
 
-# Check for updates in vimrc and LaTeX preamble
-/home/markus/scripts/checkVimRcUpdate
-/home/markus/scripts/checkPreambleUpdate
+DOTNET_CLI_TELEMETRY_OPTOUT=1
+RANGER_LOAD_DEFAULT_RC=FALSE
+
+# Make locales work
+export LC_ALL=C
+
+# Enable vim binds
+bindkey -v
 
 # Enable NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Enable VcsXsrv, which allows GUIs to be opened
+# Set variables for icons
+source $HOME/.config/zshstart/font-names/i_all.sh
 
-export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
-export LIBGL_ALWAYS_INDIRECT=true
+POWERLEVEL9k_LEFT_PROMPT_ELEMENTS=(context dir_writable vcs)
+POWERLEVEL9k_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs)
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

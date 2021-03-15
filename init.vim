@@ -45,7 +45,7 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 
 let g:fzfCommand = 'git --git-dir=./.git ls-files -oc --exclude-standard'
 
-let g:vimtex_view_general_viewer = 'sumatra'
+let g:vimtex_view_general_viewer = 'zathura'
 
 set encoding=UTF-8
 set rnu nu
@@ -59,7 +59,7 @@ nmap ++ <plug>NERDCommenterToggle
 "autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * NERDTree
 
-set shellcmdflag=-ic
+"set shellcmdflag=-ic
 
 let g:NERDTreeGitStatusWithFlags = 1
 "let g:WebDevIconsUnicodeDecorateFolderNodes = 1
@@ -296,3 +296,10 @@ aug END
 
 " Ignore spellcheck in certain latex enviroments
 sy match texParencite "\\parencite{[^}]\{-}}"hs=s+11,he=e-1 containedin=texstatement contains=@NoSpell
+
+" Run script
+inoremap <F1> <ESC>:!./buildrun<CR>a
+nnoremap <F1> :!./buildrun<CR>
+
+" Command for saving as root
+command Sudo w !sudo tee % > /dev/null
