@@ -43,7 +43,7 @@ setxkbmap -option caps:escape
 numlockx &
 
 # set the wallpaper
-~/.fehbg
+#~/.fehbg
 # or to set a random wallpaper on each startup:
 set-random-wallpaper
 
