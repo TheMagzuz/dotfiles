@@ -21,7 +21,7 @@ deploy_file() {
   ans="y"
   fullPath="$1/$2"
 
-  [ -d $1 ] && mkdir -p $1
+  mkdir -p $1
 
   if ([ -f "$fullPath" ] || [ -L "$fullPath" ]) ; then
     if [ -z "$defaultAnswer" ]; then 
@@ -36,14 +36,13 @@ deploy_file() {
 
   [[ "$ans" =~ ^[^yYbB].*$ ]] && return
   
-  [[ "$ans" =~ ^[^yY]$ ]] || [ -z "$ans"] && mv $fullPath "$1/$2.old-`randomString`"
+  [[ "$ans" =~ ^[^yY]$ ]] || [ -z "$ans" ] && mv $fullPath "$1/$2.old-`randomString`"
 
   (${deploycommand[@]} "$filesDir/$2" $fullPath)
 }
 
 filesDir=`realpath $(dirname $0)`
 
-echo $filesDir
 while IFS= read -r line; do
   IFS=" " read p filename <<< $line
   filepath="${p/#\~/$HOME}"
