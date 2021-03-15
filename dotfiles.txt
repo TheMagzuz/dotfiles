@@ -1,5 +1,6 @@
 ~ .zshrc
 ~ .bash_aliases
 ~ .latexmkrc
+~ .xinitrc
 ~/.config/nvim init.vim
 ~/texmf/tex/latex/preamble preamble.sty
