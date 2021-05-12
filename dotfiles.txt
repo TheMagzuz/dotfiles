@@ -4,3 +4,4 @@
 ~ .xinitrc
 ~/.config/nvim init.vim
 ~/texmf/tex/latex/preamble preamble.sty
+~/texmf/tex/latex/preamble adoc.cls
