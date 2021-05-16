@@ -122,9 +122,9 @@
   \cfoot{\thepage\space #1~\pageref{LastPage}}
   \lhead{\@institution}
   \rhead{\rightmark}
-  \renewcommand{\sectionmark}[1]{\label{sec:##1}\markright{\thesection\ ##1}}
-  \renewcommand{\subsectionmark}[1]{\label{subsec:#1}}
-  \renewcommand{\subsubsectionmark}[1]{\label{subsubsec:#1}}
+  \renewcommand{\sectionmark}[1]{\markright{\thesection\ ##1}}
+  \renewcommand{\subsectionmark}[1]{}
+  \renewcommand{\subsubsectionmark}[1]{}
 }
 
 % Number sets
