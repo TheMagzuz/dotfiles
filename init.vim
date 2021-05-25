@@ -14,6 +14,8 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'lervag/vimtex'
 
+Plug 'SirVer/ultisnips'
+
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 "Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
@@ -49,6 +51,11 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:fzfCommand = 'git --git-dir=./.git ls-files -oc --exclude-standard'
 
 let g:vimtex_view_general_viewer = 'zathura'
+let g:vimtex_quickfix_mode=2
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 set encoding=UTF-8
 set rnu nu
