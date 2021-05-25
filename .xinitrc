@@ -53,7 +53,7 @@ xcompmgr -c &
 # start the statusbar
 dwmblocks &
 
-exec dwm &> /home/markus/dwm.log
+exec dwm
 
 #twm &
 #xclock -geometry 50x50-1+1 &

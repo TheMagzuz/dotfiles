@@ -34,6 +34,9 @@ Plug 'chrisbra/unicode.vim'
 " Initialize plugin system
 call plug#end()
 
+" Set colors to 256
+set t_Co=256
+
 let mapleader = ',' 
 let maplocalleader = ','
 
@@ -306,3 +309,12 @@ nnoremap <F1> :!./buildrun<CR>
 
 " Command for saving as root
 command Sudo w !sudo tee % > /dev/null
+
+hi Pmenu ctermbg=Black ctermfg=Gray
+func! s:setup_pmenu_colors()
+    hi Pmenu ctermbg=Black ctermfg=Gray
+endfunc
+
+aug colorscheme_coc_setup | au!
+  au ColorScheme * call s:setup_pmenu_colors()
+aug END

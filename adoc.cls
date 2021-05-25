@@ -122,9 +122,9 @@
   \cfoot{\thepage\space #1~\pageref{LastPage}}
   \lhead{\@institution}
   \rhead{\rightmark}
-  \renewcommand{\sectionmark}[1]{\label{sec:##1}\markright{\thesection\ ##1}}
-  \renewcommand{\subsectionmark}[1]{\label{subsec:#1}}
-  \renewcommand{\subsubsectionmark}[1]{\label{subsubsec:#1}}
+  \renewcommand{\sectionmark}[1]{\markright{\thesection\ ##1}}
+  \renewcommand{\subsectionmark}[1]{}
+  \renewcommand{\subsubsectionmark}[1]{}
 }
 
 % Number sets
@@ -148,9 +148,11 @@
 \newcommand{\@institution}{}
 \newcommand{\@subtitle}{}
 \newcommand{\@mentor}{}
+\newcommand{\@pagecountfp}{}
 \newcommand{\institution}[1]{\renewcommand{\@institution}{#1}}
 \newcommand{\subtitle}[1]{\renewcommand{\@subtitle}{#1}}
 \newcommand{\mentor}[1]{\renewcommand{\@mentor}{#1}}
+\newcommand{\pagecountfp}[1]{\renewcommand{\@pagecountfp}{#1}}
 
 
 % Create the title page
@@ -193,6 +195,7 @@
       \vfill\vfill\vfill
 
       \large\today
+      \ifdef{\@pagecountfp}{\\ \normalsize \@pagecountfp}
 
       \vfill\vfill
 
