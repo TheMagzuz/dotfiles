@@ -15,7 +15,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'lervag/vimtex'
 
 Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-eunuch'
+
 "Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 Plug 'christoomey/vim-tmux-navigator'
