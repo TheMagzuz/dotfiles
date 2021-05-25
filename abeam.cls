@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{adoc}[2021/05/25 A custom presentation class]
+\ProvidesClass{abeam}[2021/05/25 A custom presentation class]
 
 \LoadClass{beamer}
 
