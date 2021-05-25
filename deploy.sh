@@ -44,8 +44,6 @@ deploy_file() {
 
 filesDir=`realpath $(dirname $0)`
 
-echo $fileToDeploy
-
 while IFS= read -r line; do
   IFS=" " read p filename <<< $line
   filepath="${p/#\~/$HOME}"
