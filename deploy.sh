@@ -6,7 +6,7 @@ randomString() {
 
 deploycommand=(ln -s)
 
-while getopts "hc:a:" name; do 
+while getopts "hc:a:f:" name; do 
   case $name in
     c) deploycommand=(cp) ;;
     h) echo "Usage: 
@@ -14,6 +14,7 @@ while getopts "hc:a:" name; do
              ./deploy.sh -c         Deploy all dotfiles by copying them
              ./deploy.sh -a ANSWER  Deploy all files, using ANSWER as the answer in case of conflicts" ;;
     a)  defaultAnswer=$OPTARG ;;
+    f) fileToDeploy=$OPTARG;;
   esac
 done
 
@@ -43,8 +44,15 @@ deploy_file() {
 
 filesDir=`realpath $(dirname $0)`
 
+echo $fileToDeploy
+
 while IFS= read -r line; do
   IFS=" " read p filename <<< $line
   filepath="${p/#\~/$HOME}"
-  deploy_file $filepath $filename
+
+  if [ ! -z $fileToDeploy ] ; then
+    [ "$filename" = "$fileToDeploy" ] && deploy_file $filepath $filename
+  else 
+    deploy_file $filepath $filename
+  fi
 done < $filesDir/dotfiles.txt
