@@ -49,12 +49,53 @@ $0
 \end{document}
 endsnippet
 
+snippet document "Template for a document" b
+\documentclass[${1:danish]{adoc}}]
+
+\author{$2}
+\title{$3}
+
+\begin{document}
+\nohf{}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+\sethf{}
+$0
+\end{document}
+endsnippet
+
 snippet figure "A figure" b
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{$1}\label{fig:$2}
 	\caption{$3}
 \end{figure}
+$0
+endsnippet
+
+snippet sfigure "A figure using a subfile" b
+\begin{figure}[htbp]
+	\centering
+	\subfile{$1}\label{fig:$2}
+	\caption{$3}
+\end{figure}
+$0
+endsnippet
+
+snippet sec "A section" b
+\section{$1}
+$0
+endsnippet
+
+snippet ssec "A subsection" b
+\subsection{$1}
+$0
+endsnippet
+
+snippet sssec "A subsubsection" b
+\subsubsection{$1}
 $0
 endsnippet
 
