@@ -25,6 +25,8 @@ Plug 'tpope/vim-eunuch'
 
 Plug 'christoomey/vim-tmux-navigator'
 
+Plug 'mattn/emmet-vim'
+
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 
 Plug 'vim-airline/vim-airline'
