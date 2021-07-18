@@ -120,6 +120,18 @@ snippet desc "Description" b
 $0
 endsnippet
 
+snippet frame "Beamer frame" b
+\begin{frame}
+	\frametitle{$1}
+	$2
+\end{frame}
+$0
+endsnippet
+
+snippet	dqo "Double quotes"
+\`\`$1''$0
+endsnippet
+
 context "math()"
 snippet () "left( right)" iA
 \left( ${1:${VISUAL}} \right) $0
@@ -129,3 +141,9 @@ context "math()"
 snippet // "Fraction" iA
 \frac{$1}{$2}$0
 endsnippet
+
+context "math()"
+snippet pmat "Matrix with parenthesis" i
+\begin{pmatrix} $1 \end{pmatrix} $0
+endsnippet
+
