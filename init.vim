@@ -280,8 +280,8 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 nnoremap <silent> <leader>, :<C-u>bp<CR>
 nnoremap <silent> <leader>. :<C-u>bn<CR>
 
-inoremap <silent> <C-p> <ESC>:call RunFzf()<CR>
-nnoremap <silent> <C-p> :call RunFzf()<CR>
+inoremap <silent> <C-p> <ESC>:FZF<CR>
+nnoremap <silent> <C-p> :FZF<CR>
 
 nnoremap <silent> <leader>n :<C-u>noh<CR>
 
