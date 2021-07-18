@@ -16,6 +16,7 @@ setopt histignorealldups sharehistory
 # Use vim bindings
 export EDITOR='nvim'
 bindkey -v
+bindkey '^R' history-incremental-search-backward
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
