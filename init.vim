@@ -28,6 +28,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'mattn/emmet-vim'
 
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
+Plug 'habamax/vim-godot'
 
 Plug 'vim-airline/vim-airline'
 Plug 'mhinz/vim-startify'
