@@ -31,7 +31,7 @@ Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 Plug 'habamax/vim-godot'
 
 Plug 'vim-airline/vim-airline'
-Plug 'mhinz/vim-startify'
+"Plug 'mhinz/vim-startify'
 
 Plug 'sheerun/vim-polyglot'
 
@@ -46,7 +46,6 @@ let mapleader = ','
 let maplocalleader = ','
 
 let g:python3_host_prog = '/usr/bin/python3'
-let g:startify_bookmarks = [ {'v': '~/.config/nvim/init.vim'}, { 'b': '~/.zshrc' }, {'p': '~/texmf/tex/latex/preamble/preamble.sty'} ]
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
