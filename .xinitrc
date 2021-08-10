@@ -34,7 +34,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 # make sure the correct monitor layout is set
-xlayoutdisplay
+xlayoutdisplay -p DP-0 -o DP-0 -o HDMI-0
 
 # bind caps lock to escape
 setxkbmap -option caps:escape
