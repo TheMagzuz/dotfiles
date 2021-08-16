@@ -12,7 +12,7 @@ while getopts "hc:a:f:" name; do
     h) echo "Usage: 
              ./deploy.sh            Deploy all dotfiles using symbolic links
              ./deploy.sh -c         Deploy all dotfiles by copying them
-             ./deploy.sh -a ANSWER  Deploy all files, using ANSWER as the answer in case of conflicts" ;;
+             ./deploy.sh -a ANSWER  Deploy all files, using ANSWER as the answer in case of conflicts" && exit 0 ;;
     a)  defaultAnswer=$OPTARG ;;
     f) fileToDeploy=$OPTARG;;
   esac
