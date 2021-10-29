@@ -53,6 +53,8 @@ xcompmgr -c &
 # start the statusbar
 dwmblocks &
 
+(sleep 5 && sigdwmblocks 2) &
+
 exec dwm
 
 #twm &
