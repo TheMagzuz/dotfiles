@@ -8,3 +8,4 @@
 ~/texmf/tex/latex/preamble abeam.cls
 ~/.config/nvim/UltiSnips tex.snippets
 ~/.config/kitty kitty.conf
+~ .bc
