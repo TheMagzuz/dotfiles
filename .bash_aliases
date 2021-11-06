@@ -18,3 +18,10 @@ alias gd='git diff'
 # Standard command aliases
 alias ls='ls --color'
 alias mkdir='mkdir -p'
+
+# Activate python virtual environment
+activate() {
+  venv=venv
+  [ ! -z $1 ] && venv="$1"
+  source ./$venv/bin/activate
+}
