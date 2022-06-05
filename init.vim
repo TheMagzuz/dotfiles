@@ -11,6 +11,8 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 " Fuzzy file searching
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -42,7 +44,7 @@ Plug 'habamax/vim-godot'
 
 Plug 'sheerun/vim-polyglot'
 
-Plug 'chrisbra/unicode.vim' 
+Plug 'chrisbra/unicode.vim'
 " Initialize plugin system
 call plug#end()
 
@@ -52,7 +54,7 @@ call plug#end()
 set t_Co=256
 
 " Set the leader to ,
-let mapleader = ',' 
+let mapleader = ','
 let maplocalleader = ','
 
 let g:python3_host_prog = '/usr/bin/python3'
@@ -63,6 +65,10 @@ set rnu nu
 " j/k will move virtual lines (lines that wrap)
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+
+" Use the system clipboard
+" This will probably bite me in the ass at some point
+set clipboard=unnamedplus
 
 inoremap jk <ESC>
 
@@ -84,6 +90,9 @@ set shortmess+=c
 " always show signcolumns
 set signcolumn=yes
 
+" set the title of the terminal
+set title
+
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -101,9 +110,9 @@ let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
   \ 'coc-tsserver',
-  \ 'coc-eslint', 
-  \ 'coc-prettier', 
-  \ 'coc-json', 
+  \ 'coc-eslint',
+  \ 'coc-prettier',
+  \ 'coc-json',
   \ 'coc-omnisharp',
   \ ]
 "
@@ -123,6 +132,8 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+nnoremap <silent> <leader>gi :<C-u>e ~/.config/nvim/init.vim<CR>
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -198,10 +209,9 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-
 """ Snippets
 
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<leader><leader>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
@@ -276,12 +286,14 @@ inoremap <leader>d <ESC>o
 " Format file
 noremap <leader>d gg=G<C-o>
 
-" Run script
-inoremap <F1> <ESC>:!./buildrun<CR>a
-nnoremap <F1> :!./buildrun<CR>
-
-" Command for saving as root
-command Sudo w !sudo tee % > /dev/null
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "rust" },
+  highlight = {
+    enable  = true,
+  },
+}
+EOF
 
 hi Pmenu ctermbg=Black ctermfg=Gray
 func! s:setup_pmenu_colors()
