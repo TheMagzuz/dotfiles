@@ -2,7 +2,7 @@
 ~ .zshenv
 ~ .bash_aliases
 ~ .latexmkrc
-~ .xinitrc
+~ .xsession
 ~/.config/nvim init.vim
 ~/.config/alacritty alacritty.yml
 ~/.config/i3 config
