@@ -98,6 +98,9 @@ bindsym $mod+r exec --no-startup-id record-screen
 # zoom
 bindsym $mod+z exec boomer
 
+# emoji picker
+bindsym $mod+shift+e exec --no-startup-id emoji-picker
+
 # start bc in a scratchpad
 for_window [instance="bc-scratchpad"] floating enable, resize set 800 600
 bindsym $mod+grave exec --no-startup-id alacritty --class "bc-scratchpad" -t "bc" -e bc -q
