@@ -87,8 +87,7 @@ bindsym $mod+b exec --no-startup-id firefox-nightly
 bindsym $mod+shift+b exec --no-startup-id firefox-nightly --private-window
 
 # change keyboard layouts
-set $refresh_keyboard pkill -RTMIN+5 i3blocks
-bindsym $mod+c exec --no-startup-id cycle-kb && $refresh_keyboard
+bindsym $mod+c exec --no-startup-id cycle-kb
 
 # screenshot
 bindsym $mod+shift+s exec --no-startup-id screenshot
