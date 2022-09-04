@@ -291,6 +291,12 @@ inoremap <leader>d <ESC>o
 " Format file
 noremap <leader>d gg=G<C-o>
 
+" Run program
+nnoremap <leader>r <Cmd>w<CR><Cmd>make run<CR>
+
+" Go into normal mode from the terminal
+tnoremap <nowait> <leader><esc> <C-\><C-n>
+
 lua << EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "rust" },
