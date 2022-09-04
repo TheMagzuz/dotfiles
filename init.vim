@@ -45,6 +45,9 @@ Plug 'habamax/vim-godot'
 Plug 'sheerun/vim-polyglot'
 
 Plug 'chrisbra/unicode.vim'
+
+Plug 'dracula/vim', {'as': 'dracula'}
+
 " Initialize plugin system
 call plug#end()
 
@@ -52,6 +55,8 @@ call plug#end()
 
 " Set colors to 256
 set t_Co=256
+
+set guifont=monospace
 
 " Set the leader to ,
 let mapleader = ','
@@ -295,13 +300,20 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
-hi Pmenu ctermbg=Black ctermfg=Gray
-func! s:setup_pmenu_colors()
-    hi Pmenu ctermbg=Black ctermfg=Gray
-endfunc
 
-aug colorscheme_coc_setup | au!
-  au ColorScheme * call s:setup_pmenu_colors()
-aug END
+" Neovide only configuration
+if exists("g:neovide")
+  let g:neovide_refresh_rate=144
+  let g:neovide_floating_blur_amount_x = 2.0
+  let g:neovide_floating_blur_amount_y = 2.0
+  colo dracula
+else
+  func! s:setup_pmenu_colors()
+      hi Pmenu ctermbg=Black ctermfg=Gray
+  endfunc
 
-
+  hi Pmenu ctermbg=Black ctermfg=Gray
+  aug colorscheme_coc_setup | au!
+    au ColorScheme * call s:setup_pmenu_colors()
+  aug END
+endif
