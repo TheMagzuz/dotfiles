@@ -29,7 +29,7 @@ export HISTFILE="$XDG_STATE_HOME"/zsh/history
 export BC_ENV_ARGS="$HOME/.bc"
 export TERMINAL=alacritty
 
-source "$XDG_DATA_HOME/cargo"
+[ -f  "$XDG_DATA_HOME/cargo" ] && source "$XDG_DATA_HOME/cargo"
 
 
 if [ -f ~/.bash_path ]; then
