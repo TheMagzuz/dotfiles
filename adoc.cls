@@ -119,9 +119,15 @@
   \fancyhf{}
   \pagenumbering{arabic}
   \setlength{\headheight}{16pt}
-  \cfoot{\thepage\space #1~\pageref{LastPage}}
-  \lhead{\@institution}
-  \rhead{\rightmark}
+  \if@twoside
+    \fancyfooter[CE,CO]{\thepage\space #1~\pageref{LastPage}}
+    \fancyheader[LE,LO]{\@institution}
+    \fancyheader[RE,RO]{\rightmark}
+  \else
+    \cfoot{\thepage\space #1~\pageref{LastPage}}
+    \lhead{\@institution}
+    \rhead{\rightmark}
+  \fi
   \renewcommand{\sectionmark}[1]{\markright{\thesection\ ##1}}
   \renewcommand{\subsectionmark}[1]{}
   \renewcommand{\subsubsectionmark}[1]{}
