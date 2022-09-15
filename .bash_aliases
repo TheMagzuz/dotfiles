@@ -13,6 +13,7 @@ alias gst='git status'
 alias gps='git push'
 alias gpl='git pull'
 alias gd='git diff'
+alias gap='git add -p'
 
 # Standard command aliases
 alias ls='ls --color'
