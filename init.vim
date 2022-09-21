@@ -267,7 +267,6 @@ sy match texParencite "\\parencite{[^}]\{-}}"hs=s+11,he=e-1 containedin=texstate
 nnoremap <silent> <leader>, :<C-u>bp<CR>
 nnoremap <silent> <leader>. :<C-u>bn<CR>
 
-inoremap <silent> <C-p> <ESC>:FZF<CR>
 nnoremap <silent> <C-p> :FZF<CR>
 
 nnoremap <silent> <leader>n :<C-u>noh<CR>
