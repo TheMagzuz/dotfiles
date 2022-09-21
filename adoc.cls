@@ -177,11 +177,12 @@
     \centering
     \textsc{\LARGE \@institution}\\[1.5cm]
 
-    \textsc{\Large \@subtitle}\\[0.5cm]
 
     \HRule\\[0.4cm]
 
     {\huge\bfseries \@title}\\[0.4cm]
+
+    \textsc{\Large \@subtitle}\\
 
     \HRule\\[1.5cm]
 
