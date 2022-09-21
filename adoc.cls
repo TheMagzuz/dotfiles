@@ -144,11 +144,15 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 
+
 % Centers some text and puts two lines under it
 \newcommand{\facit}[1]{\begin{center}\underline{\underline{#1}}\end{center}}
 
 % Partial differentiation fraction
 \newcommand{\pfrac}[2]{\frac{\partial{} #1}{\partial{} #2}}
+
+% Set builder notation
+\newcommand{\setbuild}[2]{\{#1\ |\ #2\}}
 
 % Thicker hline
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
