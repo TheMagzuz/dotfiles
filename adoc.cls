@@ -60,7 +60,11 @@
 \RequirePackage{parskip}
 
 % Bibliography
-\RequirePackage[style=authoryear,backend=biber]{biblatex}
+\RequirePackage[
+  style=numeric,
+  sorting=none,
+  backend=biber,
+]{biblatex}
 
 % Function to extract the last word of a sentence
 %\newcommand*\lastword[1]{\expandafter\xreverseit\expandafter{\expandafter}#1 \relax}
