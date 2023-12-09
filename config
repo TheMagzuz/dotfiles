@@ -35,6 +35,8 @@ focus_wrapping workspace
 
 # Border on windows
 default_border pixel 1
+for_window [all] border pixel 1
+for_window [class="discord"] default_border pixel 1
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_audio pkill -RTMIN+1 i3blocks
@@ -42,6 +44,10 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -2% && $refresh_audio
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_audio
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_audio
+
+# change backlight brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 
 # music control
 set $refresh_music pkill -RTMIN+15 i3blocks
@@ -71,23 +77,23 @@ bindsym $mod+shift+comma move container to output left
 bindsym $mod+shift+period move container to output right
 
 # set the terminal
-set $term alacritty
+set $term kitty
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start dmenu (a program launcher)
-bindsym $mod+p exec --no-startup-id dmenu_run
+bindsym $mod+p exec --no-startup-id rofi -show drun
 
 # start a terminal
 bindsym $mod+Return exec --no-startup-id $term
 
 # start a browser
-bindsym $mod+b exec --no-startup-id firefox-nightly
-bindsym $mod+shift+b exec --no-startup-id firefox-nightly --private-window
+bindsym $mod+b exec --no-startup-id firefox
+bindsym $mod+shift+b exec --no-startup-id firefox --private-window
 
 # change keyboard layouts
-bindsym $mod+c exec --no-startup-id cycle-kb
+bindsym $mod+c exec --no-startup-id /home/markus/scripts/cycle-kb
 
 # screenshot
 bindsym $mod+shift+s exec --no-startup-id screenshot
@@ -256,6 +262,8 @@ mode "resize" {
 }
 
 bindsym $mod+ctrl+r mode "resize"
+
+bindsym $mod+ctrl+l exec --no-startup-id "notify-send \\"Going to sleep\\"; sleep 1; xset dpms force off"
 
 # start polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh

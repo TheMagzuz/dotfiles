@@ -120,13 +120,15 @@ let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-omnisharp',
   \ ]
-"
+
+
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <cr> coc#pum#visible() && coc#pum#info()['index'] != -1 ? coc#pum#confirm() : "\<C-g>u\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -216,7 +218,7 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 """ Snippets
 
-let g:UltiSnipsExpandTrigger="<leader><leader>"
+let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
@@ -281,6 +283,8 @@ nnoremap <silent> <leader>sda :<C-u>set spell spelllang=da<CR>
 nnoremap <silent> <leader>sus :<C-u>set spell spelllang=en_US<CR>
 nnoremap <silent> <leader>sdi :<C-u>set nospell<CR>
 
+" Fix spelling
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 " Insert line above
 inoremap <leader><CR> <ESC>O
 
@@ -311,7 +315,6 @@ if exists("g:neovide")
   let g:neovide_refresh_rate=144
   let g:neovide_floating_blur_amount_x = 2.0
   let g:neovide_floating_blur_amount_y = 2.0
-  colo dracula
 else
   func! s:setup_pmenu_colors()
       hi Pmenu ctermbg=Black ctermfg=Gray
@@ -322,3 +325,5 @@ else
     au ColorScheme * call s:setup_pmenu_colors()
   aug END
 endif
+set termguicolors
+colo dracula

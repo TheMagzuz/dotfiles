@@ -189,7 +189,8 @@
     \begin{minipage}[t]{0.45\textwidth}
       \begin{flushleft}
         \large
-        \textit{\IfLanguageName{danish}{Forfatter\pluralize{\@author}{}{e}}{Author\pluralize{\@author}{}{s}}:} \\
+        %\textit{\IfLanguageName{danish}{Forfatter\pluralize{\@author}{}{e}}{Author\pluralize{\@author}{}{s}}:} \\
+        \textit{\IfLanguageName{danish}{Forfatter\pluralize{\@author}{}{e}}{Author:}} \\
         \foreach \authorname in \@author {% 
           \authorname\\
         }
@@ -199,7 +200,7 @@
       \begin{flushright}
         \ifdef{\@mentor}{%
             \large
-            \textit{\IfLanguageName{danish}{\pluralize{\@mentor}{Vejleder}{Vejledere}}{\pluralize{\@mentor}{Mentor}{Mentors}}:} \\
+            %\textit{\IfLanguageName{danish}{\pluralize{\@mentor}{Vejleder}{Vejledere}}{\pluralize{\@mentor}{Mentor}{Mentors}}:} \\
             \foreach \mentorname in \@mentor {% 
               \mentorname\\
             }
@@ -213,8 +214,6 @@
       \ifdef{\@pagecountfp}{\\ \normalsize \@pagecountfp}
 
       \vfill\vfill
-
-      \includegraphics[width=0.2\textwidth]{images/inst.png}\\[1cm]
 
       \vfill	
 
